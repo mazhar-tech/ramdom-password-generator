@@ -1,5 +1,5 @@
 import "./App.css";
-import { useCallback, useState, useEffect,useRef } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 function App() {
   const [length, setLength] = useState(8);
   const [numbersAllowed, setNumbersAllowed] = useState(false);
@@ -19,12 +19,12 @@ function App() {
     setPassword(pass);
   }, [length, numbersAllowed, lattersAllowed, setPassword]);
 
-  const passwordRef=useRef(null)
+  const passwordRef = useRef(null)
 
-  const passwordCopy=useCallback(()=>{
+  const passwordCopy = useCallback(() => {
     passwordRef.current?.select()
     window.navigator.clipboard.writeText(password)
-  },[password])
+  }, [password])
 
   useEffect(() => {
     passwordGenerator();
@@ -44,7 +44,7 @@ function App() {
             ref={passwordRef}
           />
           <button className="btn btn-primary" type="button" id="button-addon2" onClick={passwordCopy}>
-            Copy
+            Copy Password
           </button>
         </div>
         <div className="row  mx-2">
